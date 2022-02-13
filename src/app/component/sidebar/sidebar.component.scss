@@ -1,0 +1,20 @@
+.example-container {
+  width: 10%;
+  height: 100vh;
+  border: 1px solid #555;
+}
+.side-nav {
+  .side-nav__container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    li {
+      margin-top: 3rem;
+      .side-nav__item {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: azure;
+      }
+    }
+  }
+}
