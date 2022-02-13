@@ -1,0 +1,17 @@
+.pizza-order-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  .pizza-order-container__radio {
+    width: 40%;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+  }
+  .pizza-order-container__select {
+    width: 40%;
+  }
+}

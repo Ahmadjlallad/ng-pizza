@@ -1,1 +1,26 @@
-<p>pizza-order-form works!</p>
+<div class="pizza-order-container">
+  <mat-form-field appearance="fill" class="pizza-order-container__select">
+    <mat-label>Pizza Type</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-radio-group
+    aria-label="Select an option"
+    class="pizza-order-container__radio"
+  >
+    <mat-radio-button value="1">Small</mat-radio-button>
+    <mat-radio-button value="2">Medium</mat-radio-button>
+    <mat-radio-button value="2">Large</mat-radio-button>
+  </mat-radio-group>
+
+  <section class="example-section">
+    <h4>Select your toppings:</h4>
+    <p><mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox></p>
+    <p>
+      <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
+    </p>
+    <p><mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox></p>
+  </section>
+</div>
