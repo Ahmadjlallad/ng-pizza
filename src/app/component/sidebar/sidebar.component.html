@@ -2,6 +2,19 @@
   <mat-drawer-content>
     <nav class="side-nav">
       <ul class="side-nav__container">
+        <li *ngIf="!auth.isAuthenticated">
+          <a
+            [routerLink]="'auth'"
+            routerLinkActive="active"
+            class="side-nav__item"
+          >
+            Sign In</a
+          >
+        </li>
+        <li *ngIf="auth.isAuthenticated">
+          <button (click)="logout()" class="side-nav__item btn">logout</button>
+        </li>
+
         <li>
           <a
             routerLink="pizza/order"

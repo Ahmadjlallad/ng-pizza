@@ -1,0 +1,22 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .example-full-width {
+    width: 36%;
+    margin-top: 3.5rem;
+  }
+  .btn-group {
+    button {
+      margin: 0 2rem;
+    }
+  }
+}
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+}

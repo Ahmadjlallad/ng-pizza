@@ -11,7 +11,8 @@
     flex-direction: column;
     li {
       margin-top: 3rem;
-      a {
+      a,
+      .btn {
         color: #e91e63;
         text-decoration: none;
         font-size: 1.5rem;
@@ -21,6 +22,13 @@
         &:hover {
           background-color: #555;
         }
+      }
+      .btn {
+        background: inherit;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 0 !important;
       }
       .side-nav__item {
         font-size: 1.5rem;

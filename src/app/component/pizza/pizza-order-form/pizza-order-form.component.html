@@ -1,26 +1,58 @@
-<div class="pizza-order-container">
+<div class="pizza-order-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<form
+  *ngIf="!isLoading"
+  class="pizza-order-container"
+  [formGroup]="pizzaForm"
+  (submit)="form()"
+>
   <mat-form-field appearance="fill" class="pizza-order-container__select">
     <mat-label>Pizza Type</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
+    <mat-select formControlName="pizzaType">
+      <mat-option *ngFor="let pizzaType of pizzaTypes" [value]="pizzaType">{{
+        pizzaType
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-radio-group
     aria-label="Select an option"
     class="pizza-order-container__radio"
+    formControlName="size"
   >
     <mat-radio-button value="1">Small</mat-radio-button>
     <mat-radio-button value="2">Medium</mat-radio-button>
     <mat-radio-button value="2">Large</mat-radio-button>
   </mat-radio-group>
 
-  <section class="example-section">
-    <h4>Select your toppings:</h4>
-    <p><mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox></p>
+  <section class="pizza-order-container__checkboxs" formGroupName="additions">
+    <h4>Select your additions:</h4>
     <p>
-      <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
+      <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
+    </p>
+    <p>
+      <mat-checkbox formControlName="extraCheese">Extra Cheese</mat-checkbox>
     </p>
     <p><mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox></p>
   </section>
-</div>
+  <button
+    *ngIf="!thanksMsgLoader"
+    mat-raised-button
+    color="accent"
+    [disabled]="!pizzaForm.valid && !auth.isAuthenticated"
+    type="submit"
+  >
+    Accent
+  </button>
+  <div *ngIf="thanksMsgLoader">
+    <mat-progress-bar
+      class="thanksMsgLoader"
+      mode="determinate"
+      [value]="thanksMsgValue"
+    ></mat-progress-bar>
+    <span>Thank you</span>
+  </div>
+  <div class="warning-msg" *ngIf="!auth.isAuthenticated">
+    you need to sign-in or sign up
+  </div>
+</form>

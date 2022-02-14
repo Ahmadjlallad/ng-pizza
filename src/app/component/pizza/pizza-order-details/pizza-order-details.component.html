@@ -1,1 +1,38 @@
-<p>pizza-order-details works!</p>
+<div class="pizza-detail-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div
+  class="pizza-detail-container"
+  *ngIf="!isLoading && pizzas.pizza.length <= 0"
+  [ngStyle]="{ color: '#fff' }"
+>
+  You have No order
+</div>
+<div
+  class="pizza-detail-container"
+  *ngIf="!isLoading && pizzas.pizza.length > 0"
+>
+  <mat-list role="list" *ngFor="let pizza of pizzas.pizza">
+    <mat-list-item role="listitem">
+      Pizza Type: {{ pizza.pizzaType }}
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      Pizza Size: {{ pizza.size }}
+    </mat-list-item>
+    <mat-list role="list" class="nested-list">
+      <mat-list-item role="listitem" *ngIf="pizza.additions.extraCheese">
+        Extra Cheese
+      </mat-list-item>
+      <mat-list-item role="listitem" *ngIf="pizza.additions.mushroom">
+        Mushroom
+      </mat-list-item>
+      <mat-list-item
+        role="listitem"
+        *ngIf="pizza.additions.pepperoni"
+        class="nested-list"
+      >
+        Pepperoni
+      </mat-list-item>
+    </mat-list>
+  </mat-list>
+</div>

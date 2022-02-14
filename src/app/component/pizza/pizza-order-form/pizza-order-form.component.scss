@@ -3,15 +3,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
-  height: 100%;
+  color: aliceblue;
+  height: 70%;
+  @media only screen and (max-width: 800px) {
+    align-items: flex-start;
+    margin-left: 3rem;
+    width: 70%;
+  }
   .pizza-order-container__radio {
     width: 40%;
-    color: aliceblue;
     display: flex;
     justify-content: space-between;
   }
   .pizza-order-container__select {
     width: 40%;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+  .pizza-order-container__checkboxs {
+    margin-right: 35rem;
+    @media only screen and (max-width: 800px) {
+      margin-right: 0;
+    }
+  }
+  .thanksMsgLoader {
+    width: 100%;
+    height: 3rem;
+  }
+  .warning-msg {
+    font-weight: 900;
+    font-size: 3em;
+    color: #e91e63;
   }
 }

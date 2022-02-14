@@ -1,1 +1,49 @@
-<p>auth works!</p>
+<div class="spinner" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<form class="auth-form" [formGroup]="authForm" (submit)="submit()">
+  <mat-card *ngIf="error">Error: {{ errorMsg }}</mat-card>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input
+      formControlName="username"
+      type="text"
+      matInput
+      placeholder="Username"
+    />
+    <mat-error *ngIf="authForm.controls['username'].hasError('required')">
+      Username is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input
+      formControlName="password"
+      type="password"
+      matInput
+      placeholder="password"
+    />
+
+    <mat-error *ngIf="authForm.controls['password'].hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="btn-group">
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!authForm.valid"
+      type="submit"
+    >
+      {{ signIn ? "sign in" : "sign up" }}
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      type="button"
+      (click)="toggleSignIn()"
+    >
+      {{ signIn ? "sign up" : "sign in" }}
+    </button>
+  </div>
+</form>
